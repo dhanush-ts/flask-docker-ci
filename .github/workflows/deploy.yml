@@ -37,7 +37,7 @@ name: Deploy to EC2 via SCP
 on:
   push:
     branches:
-      - main  # or your default branch
+      - master  # or your default branch
 
 jobs:
   deploy:
