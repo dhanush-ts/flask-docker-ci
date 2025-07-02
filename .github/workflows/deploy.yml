@@ -59,13 +59,13 @@ jobs:
 
     - name: Copy files to EC2
       run: |
-        scp -i key.pem -o StrictHostKeyChecking=no -r deploy/* ec2-user@<YOUR_EC2_PUBLIC_IP>:/home/ec2-user/app/
+        scp -i key.pem -o StrictHostKeyChecking=no -r deploy/* ec2-user@18.234.218.71:/home/ec2-user/app/
       env:
         SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
 
     - name: Restart Docker container on EC2
       run: |
-        ssh -i key.pem -o StrictHostKeyChecking=no ec2-user@<YOUR_EC2_PUBLIC_IP> "
+        ssh -i key.pem -o StrictHostKeyChecking=no ec2-user@18.234.218.71 "
           docker stop flaskapp || true &&
           docker rm flaskapp || true &&
           cd /home/ec2-user/app &&
