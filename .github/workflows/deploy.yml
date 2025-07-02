@@ -54,7 +54,7 @@ jobs:
 
     - name: Save EC2 SSH key
       run: |
-        printf "%s" "${{ secrets.EC2_SSH_KEY }}" > key.pem
+        printf "%s" "${{ secrets.EC2_KEY }}" > key.pem
         chmod 600 key.pem
 
     - name: Copy files to EC2
