@@ -55,7 +55,11 @@ jobs:
     - name: Save EC2 SSH key
       run: |
         echo "$SSH_PRIVATE_KEY" > key.pem
+        sed -i 's/\\n/\n/g' key.pem
         chmod 600 key.pem
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+
 
     - name: Copy files to EC2
       run: |
